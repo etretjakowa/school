@@ -41,8 +41,4 @@ public class StudentServiceImpl implements StudentService {
         studentRepository.deleteById(id);
     }
 
-    @Override
-    public List<Student> getStudentsByAge(int studentAge) {
-        return studentRepository.findStudentByAge(studentAge);
-    }
 }

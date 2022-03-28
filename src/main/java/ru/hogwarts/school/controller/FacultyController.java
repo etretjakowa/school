@@ -48,13 +48,4 @@ public class FacultyController {
         facultyService.deleteFaculty(id);
         return ResponseEntity.ok().build();
     }
-
-    @GetMapping("/color/{facultyColor}")
-    public ResponseEntity<List<Faculty>> getFacultiesByColor(@PathVariable String facultyColor) {
-        List<Faculty> facultiesByColor = facultyService.getFacultiesByColor(facultyColor);
-        if (facultiesByColor == null) {
-            return ResponseEntity.notFound().build();
-        }
-        return ResponseEntity.ok(facultiesByColor);
-    }
 }
