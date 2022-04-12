@@ -37,6 +37,16 @@ public class FacultyServiceImpl implements FacultyService {
         facultyRepository.deleteById(id);
     }
 
+    @Override
+    public Set<Faculty> findByColor(String color) {
+        return facultyRepository.findByColor(color);
+
+    }
+
+    @Override
+    public Set<Faculty> findByColorOrNameIgnoreCase(String color, String name) {
+        return facultyRepository.findByColorIgnoreCaseOrNameIgnoreCase(color, name);
+    }
 
 
 }

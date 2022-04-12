@@ -4,10 +4,7 @@ import org.springframework.stereotype.Service;
 import ru.hogwarts.school.model.Student;
 import ru.hogwarts.school.repositories.StudentRepository;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 
@@ -39,6 +36,16 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public void deleteStudent(Long id) {
         studentRepository.deleteById(id);
+    }
+
+    @Override
+    public Set<Student> findByAge(int age) {
+        return studentRepository.findByAge(age);
+    }
+
+    @Override
+    public Set<Student> findByAgeBetween(int minAge, int maxAge) {
+        return studentRepository.findByAgeBetween(minAge, maxAge);
     }
 
 }
