@@ -49,17 +49,17 @@ public class FacultyController {
         return ResponseEntity.ok().build();
     }
 
-        @GetMapping(params = {"color"})
+    @GetMapping(params = {"color"})
     public Set<Faculty> findFacultiesByColor(
-            @RequestParam(required = false) String color){
+            @RequestParam(required = false) String color) {
         return facultyService.findByColor(color);
-}
+    }
+
     @GetMapping
-    public ResponseEntity Set<Faculty> findByColorOrNameIgnoreCase(
+    public Set<Faculty> findByColorOrNameIgnoreCase(
             @RequestParam(required = false) String facultyColor,
             @RequestParam(required = false) String name) {
         return facultyService.findByColorOrNameIgnoreCase(facultyColor, name);
-
     }
 
 }
