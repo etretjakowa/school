@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import ru.hogwarts.school.model.Faculty;
 import ru.hogwarts.school.service.FacultyService;
 
-import java.util.List;
+import java.util.Set;
 
 
 @RestController
@@ -48,4 +48,18 @@ public class FacultyController {
         facultyService.deleteFaculty(id);
         return ResponseEntity.ok().build();
     }
+
+    @GetMapping(params = {"color"})
+    public Set<Faculty> findFacultiesByColor(
+            @RequestParam(required = false) String color) {
+        return facultyService.findByColor(color);
+    }
+
+    @GetMapping
+    public Set<Faculty> findByColorOrNameIgnoreCase(
+            @RequestParam(required = false) String facultyColor,
+            @RequestParam(required = false) String name) {
+        return facultyService.findByColorOrNameIgnoreCase(facultyColor, name);
+    }
+
 }

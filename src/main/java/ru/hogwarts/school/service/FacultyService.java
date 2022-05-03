@@ -2,7 +2,7 @@ package ru.hogwarts.school.service;
 
 import ru.hogwarts.school.model.Faculty;
 
-import java.util.List;
+import java.util.Set;
 
 
 public interface FacultyService {
@@ -15,7 +15,10 @@ public interface FacultyService {
 
     void deleteFaculty(Long id);
 
+    Set<Faculty> findByColor(String color);
 
+
+    Set<Faculty> findByColorOrNameIgnoreCase(String color, String name);
 
 
 }

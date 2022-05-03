@@ -2,8 +2,7 @@ package ru.hogwarts.school.service;
 
 import ru.hogwarts.school.model.Student;
 
-import java.util.List;
-
+import java.util.Set;
 
 public interface StudentService {
     Student createStudent(Student student);
@@ -14,7 +13,8 @@ public interface StudentService {
 
     void deleteStudent(Long id);
 
+    Set<Student> findByAge(int age);
 
-
+    Set<Student> findByAgeBetween(int minAge, int maxAge);
 
 }

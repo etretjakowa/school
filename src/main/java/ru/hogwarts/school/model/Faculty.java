@@ -1,10 +1,14 @@
 package ru.hogwarts.school.model;
 
-import nonapi.io.github.classgraph.json.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.Id;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.OneToMany;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 public class Faculty {
@@ -15,6 +19,10 @@ public class Faculty {
     private String name;
     private String color;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "faculty")
+    private Set<Student> students;
+
     public Faculty(Long id, String name, String color) {
         this.id = id;
         this.name = name;
@@ -23,6 +31,10 @@ public class Faculty {
 
     public Long getId() {
         return id;
+    }
+
+    public Faculty() {
+
     }
 
     public void setId(Long id) {
